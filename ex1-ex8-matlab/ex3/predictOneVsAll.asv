@@ -34,10 +34,7 @@ g = sigmoid(X * all_theta'); % we first compute the output of the sigmoid
 % for each example which gives probability of that example belonging to any
 % of the 10 categories. It might result in an example belonging to more
 % than one category
-[~, p] = max(g, [], 2); % Compute max of g along each row to find the 
-% category with the largest probability -> our prediction says that example
-% belonging to that category
-% the column index of the maximum probability corresponds to category value
+[~, p] = max(g, [], 2); % Compute max 
 
 % =========================================================================
 
