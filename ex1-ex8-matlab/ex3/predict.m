@@ -21,9 +21,19 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+X = [ones(m,1) X];
 
+Z2 = Theta1 * X';
+a2 = sigmoid(Z2);
+a2 = [ones(1,m); a2];
 
+Z3 = Theta2 * a2;
+a3 = sigmoid(Z3);
 
+[~, p] = max(a3', [], 2); % Compute max of g along each row to find the 
+% category with the largest probability -> our prediction says that example
+% belonging to that category
+% the column index of the maximum probability corresponds to category value
 
 
 
