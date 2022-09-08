@@ -52,12 +52,18 @@ error_val   = zeros(m, 1);
 %
 
 % ---------------------- Sample Solution ----------------------
+lambda0 = 0;
+for i = 1:m
+    
+    [theta] = trainLinearReg(X(1:i, :), y(1:i), lambda);
+    
+    [Jtrain, ~] = linearRegCostFunction(X(1:i, :), y(1:i), theta, lambda0);
+    error_train(i) = Jtrain;
+    
+    [Jeval, ~] = linearRegCostFunction(Xval, yval, theta, lambda0);
+    error_val(i) = Jeval;
 
-
-
-
-
-
+end
 
 % -------------------------------------------------------------
 
