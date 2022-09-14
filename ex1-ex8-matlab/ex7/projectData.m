@@ -18,7 +18,8 @@ Z = zeros(size(X, 1), K);
 %                    projection_k = x' * U(:, k);
 %
 
-
+Ureduce = U(:,1:K); % nxK
+Z = X * Ureduce; % mxK (K is dimension, so mxk is i.e. 50x2)
 
 
 % =============================================================

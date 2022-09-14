@@ -21,11 +21,17 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+diff2 = zeros(size(X,1), size(centroids,1)); % mxk
 
+% loop through all n features and add all distances (between a centroid and
+% an example in dimension of feature i)
+for i = 1:size(X,2)
+    
+    diff2 = diff2 + (X(:,i) - centroids(:,i)') .^ 2; % mxk: column vector mx1 - row vector 1xk
+    
+end
 
-
-
-
+[~, idx] = min(diff2, [], 2);
 
 % =============================================================
 
